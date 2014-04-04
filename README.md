@@ -1,4 +1,4 @@
-# Solt 13 1 €
+# Solt 13 1 &euro;
 
 Ritter Sport mini 4Stk
 
