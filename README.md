@@ -1,6 +1,17 @@
-Test
-==============
+# Hello There
+This is [an example](http://example.com/ "I'm the title") of an inline link.
 
-1. hallo
-2. asdasd
-3. asda
+### Define a list below
+
++ Get milk
++ Buy food
+
+This is paragraph text with some **bold** or some _italics_ how about _**both**_ ?
+
+	{{data}}
+
+**Code** block below:
+
+    function hello() {
+      alert('Hello world!');
+    }
