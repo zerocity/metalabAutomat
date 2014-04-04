@@ -1,21 +1,14 @@
-# Hello There
-This is [an example](http://example.com/ "I'm the title") of an inline link.
+# Solt 13 1 €
 
-### Define a list below
+Ritter Sport mini 4Stk
 
-+ Get milk
-+ Buy food
+AUCH IN SLOT 14 und 18
+Lecker lecker. Wird man auch fett von. Omnomnomnom.
 
-This is paragraph text with some **bold** or some _italics_ how about _**both**_ ?
+### Features
++ Fett	Ja
++ Kakao	Ja
++ Zucker	Ja
++ Radioaktive Inhaltsstoffe	kaum
 
-| Left-Aligned  | Center Aligned  | Right Aligned |
-| :------------ |:---------------:| -----:|
-| col 3 is      | some wordy text | $1600 |
-| col 2 is      | centered        |   $12 |
-| zebra stripes | are neat        |    $1 |
-
-**Code** block below:
-
-    function hello() {
-      alert('Hello world!');
-    }
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
