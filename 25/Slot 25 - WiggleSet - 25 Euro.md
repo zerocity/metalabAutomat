@@ -1,6 +1,6 @@
 [img]:https://github.com/zerocity/metalabAutomat/raw/master/25/1.jpg
 
-# Slot25 - WiggleSet - 25 &euro;
+# Slot 25 - WiggleSet - 25 &euro;
 
 Project Wiggle..;
 
