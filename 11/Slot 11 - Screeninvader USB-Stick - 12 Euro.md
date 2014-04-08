@@ -5,6 +5,8 @@ Ein bootbarer USB-Stick mit dem wunderbaren Screeninvader drauf. Einfach ansteck
 
 ![img]
 
+## Features
+
 + Kapazitaet : 2GB
 + Architektur : x86 32-Bit
 + Unter der Haube: Linux (debian debootstrapped)
