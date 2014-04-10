@@ -1,9 +1,6 @@
-[img]:https://github.com/zerocity/metalabAutomat/raw/master/16/1.jpg
 # Slot 16 - Hack-Key - 12 &euro;
 
 Der Hack-Key ist ein kompakter USB-Seriell-Wandler, den du über Schiebeschalter ganz leicht an deine Aufgabe anpassen kannst. Er arbeitet mit dem FTDI-Chip, unterstützt sowohl 3,3- als auch 5-Volt-Systeme und ist kompatibel zu vielen Arduino-Boards. Damit ist der Hack-Key dein Schlüssel zu zahlreichen Mikrocontrollerprojekten.
-
-![img]
 
 ## Features
 + Spannung:3.3V oder 5V,
