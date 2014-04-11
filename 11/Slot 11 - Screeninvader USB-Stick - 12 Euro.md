@@ -1,4 +1,4 @@
-# Slot 11 - Screeninvader USB-Stick - 12 &euro;
+# Slot 11 - Screeninvader USB-Stick - 12 €
 
 Ein bootbarer USB-Stick mit dem wunderbaren Screeninvader drauf. Einfach anstecken und los gehts. Ein altes Netbook reicht vollkommen fuer die shared Media Experience des 22. Jahrhunderts , verfuegbar schon heute!;
 
