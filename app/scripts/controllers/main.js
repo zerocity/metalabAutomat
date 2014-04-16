@@ -24,12 +24,12 @@ angular.module('automatApp')
   var dbSettings = $indexedDB.objectStore('settings');
 
   var base64lib = function(content) {
-      return base64.decode(content.replace(/\n/g ,''))
+      return base64.decode(content.replace(/\n/g ,''));
   };
 
   var getLastModified = function() {
     dbSettings.getAll().then(function (result) {
-      $scope.lastModified = result[result.length -1].lastModified
+      $scope.lastModified = result[result.length -1].lastModified;
     });
   };
 
@@ -113,6 +113,11 @@ angular.module('automatApp')
     });
   };
 
+  if (typeof $scope.lastModified === 'undefined') {
+    // db initalisation
+    getGithubData();
+  };
+
   $scope.isProgressActive = function() {
     if ($scope.progressBar === $scope.maxProgress || $scope.progressBar === 0 ) {
       return 'hide';
@@ -129,10 +134,15 @@ angular.module('automatApp')
 
   // inital scope setup
   db.getAll().then(function (results) {
-    $scope.data = results
+    $scope.data = results;
   });
 
   // Update intervall
+
+
+
+
+
   $interval(function() {
     checkForUpdates().then(function (res) {
       if (res === false) {
@@ -147,9 +157,9 @@ angular.module('automatApp')
 
   $scope.setModalContent = function(dir) {
     var modal = _.findWhere($scope.data,{'dir':dir});
-    $scope.modal.content = modal.md
-    $scope.modal.img = modal.img
-  };wq
+    $scope.modal.content = modal.md;
+    $scope.modal.img = modal.img;
+  };
 
   //modal initation
   $scope.modal = {
