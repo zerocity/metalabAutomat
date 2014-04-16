@@ -29,7 +29,9 @@ angular.module('automatApp')
 
   var getLastModified = function() {
     dbSettings.getAll().then(function (result) {
-      $scope.lastModified = result[result.length -1].lastModified;
+      if (result.length > 0) {
+        $scope.lastModified = result[result.length -1].lastModified;
+      }
     });
   };
 
@@ -113,11 +115,6 @@ angular.module('automatApp')
     });
   };
 
-  if (typeof $scope.lastModified === 'undefined') {
-    // db initalisation
-    getGithubData();
-  };
-
   $scope.isProgressActive = function() {
     if ($scope.progressBar === $scope.maxProgress || $scope.progressBar === 0 ) {
       return 'hide';
@@ -134,14 +131,14 @@ angular.module('automatApp')
 
   // inital scope setup
   db.getAll().then(function (results) {
-    $scope.data = results;
+    if (results.length == 0) {
+      getGithubData();
+    } else {
+      $scope.data = results;
+    };
   });
 
   // Update intervall
-
-
-
-
 
   $interval(function() {
     checkForUpdates().then(function (res) {
