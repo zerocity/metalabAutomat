@@ -1,0 +1,28 @@
+{
+  "name": "automat",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular": "1.2.15",
+    "json3": "~3.2.6",
+    "es5-shim": "~2.1.0",
+    "jquery": "~1.11.0",
+    "bootstrap": "~3.0.3",
+    "angular-resource": "1.2.15",
+    "angular-cookies": "1.2.15",
+    "angular-sanitize": "1.2.15",
+    "angular-route": "1.2.15",
+    "underscore": "~1.6.0",
+    "angular-marked": "Hypercubed/angular-marked#~0.0.5",
+    "angular-strap": "~2.0.0",
+    "angular-motion": "~0.3.2",
+    "angular-local-store": "~0.2.0",
+    "angular-touch": "~1.2.16",
+    "bootstrap-additions": "~0.2.2",
+    "angular-utf8-base64": "*",
+    "angularjs-indexedDB": "*"
+  },
+  "devDependencies": {
+    "angular-mocks": "1.2.15",
+    "angular-scenario": "1.2.15"
+  }
+}
