@@ -6,21 +6,23 @@
         <span >{{progressBar}} % Update </span>
       </div>
     </div>
-		<div
-			class="box" ng-repeat="file in data"
-			data-animation="am-fade-and-scale"
-			data-placement="left"
-			ng-click="setModalContent(file.dir)"
-			bs-modal="modal"
-			data-template="views/modal.html">
-			<div class="header">Slot {{file.dir}} <span class="euro">{{file.euro}}</span> </div>
+
+		<div class="box" ng-repeat="file in data" data-animation="am-fade-and-scale" data-placement="left" ng-click="setModalContent(file.dir)">
+
+    <div class="header">Slot {{file.dir}} <span class="euro">{{file.euro}}</span> </div>
 			<img class="slot img-thumbnail" ng-src="data:image/gif;base64,{{file.src}}" alt="loading ... img for {{file.title}}" />
 			<p class="title" >{{file.title}}</p>
 		</div>
 
+    <div id="productView" class="hide">
+        <div class="markdown">
+        <h4 class="closeProduct" ng-click="closeProductView()">Back</h4>
+            <div class="markdown img">
+                <img class="slot img-thumbnail" ng-src="data:image/gif;base64,{{modal.src}}" alt="loading ... img for {{modal.title}}" />
+              </div>
+              <div class="markdown" ng-bind-html="markdown();"></div>
+          </div>
+    </div>
+
 </div>
 
-
-	<!-- <div class="markdown" ng-bind-html="markdown();"></div>
-<hr>
- -->

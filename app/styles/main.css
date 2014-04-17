@@ -1,5 +1,6 @@
 body {
 	margin-top: 5px;
+  margin-left: 20px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.428571429;
@@ -17,7 +18,7 @@ body {
 	max-width: 328px;
 	width: 25%;
 	margin-right: 15px;
-	float: left;
+	float: right;
 }
 
 .modal-dialog .clear{
@@ -45,7 +46,7 @@ body {
 	float: left;
 	background-color: #0178bc;
 	border-radius: 3px;
-	margin: 5px;
+	margin: 15px;
 	padding: 5px;
 }
 
@@ -82,4 +83,23 @@ body {
 
 .modalbutton {
 	margin-left: 13%;
+}
+
+#productView {
+  margin: 50px;
+  font-size: 18px;
+}
+
+#productView h1 {
+  font-size: 20px;
+  text-decoration: underline;
+}
+
+
+.closeProduct {
+  margin-bottom: 20px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 5px;
 }

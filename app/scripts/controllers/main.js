@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('automatApp')
-  .controller('MainCtrl', function ($scope,$http,$interval,base64,$indexedDB) {
+  .controller('MainCtrl', function ($scope,$http,$interval,base64,pouchdb,database) {
 
   var clientTokken = '683b134e2e89d670c797e1d77e9e6bfca3b62192';
   var repoUrl='https://api.github.com/repos/zerocity/metalabAutomat/contents/';
@@ -20,18 +20,14 @@ angular.module('automatApp')
   // initallasie
   $scope.progressBar = 0;
 
-  var db = $indexedDB.objectStore('automat');
-  var dbSettings = $indexedDB.objectStore('settings');
-
+  var db = database;
   var base64lib = function(content) {
       return base64.decode(content.replace(/\n/g ,''));
   };
 
   var getLastModified = function() {
-    dbSettings.getAll().then(function (result) {
-      if (result.length > 0) {
-        $scope.lastModified = result[result.length -1].lastModified;
-      }
+    db.get('lastModified').then(function (result) {
+      $scope.lastModified = result[result.length -1].lastModified;
     });
   };
 
@@ -59,9 +55,14 @@ angular.module('automatApp')
 
     githubDataDir.then(function ( response ) {
       //indexdb
-      dbSettings.clear();
-      dbSettings.insert({"lastModified":response.data.meta['Last-Modified']});
-      //set new last modifed
+      db.put(
+        {_id: 'lastModified',
+          lastModified: response.data.meta['Last-Modified']
+        }).then(function (result) {
+          console.log(result);
+        }).catch(function (err) {
+          console.log(err);
+        });
       getLastModified();
 
       var tree = response.data.data.tree;
@@ -102,8 +103,17 @@ angular.module('automatApp')
               $scope.progressBar ++;
               if ($scope.progressBar === tree.length) {
                 console.log('Data is inserted in indexedDB');
-                db.clear().then(function (res){}); // no double entries
-                db.insert(data);
+                //db.clear().then(function (res){}); // no double entries
+
+                db.put({_id: 'github', data: data })
+                  .then(function (result) {
+                    console.log(result);
+                  })
+                  .catch(function (err) {
+                    console.log(err);
+                  });
+
+                //db.insert(data);
                 $scope.data = data;
               }
             });
@@ -130,12 +140,16 @@ angular.module('automatApp')
   };
 
   // inital scope setup
-  db.getAll().then(function (results) {
-    if (results.length == 0) {
+  db.get('github')
+    .then(function (results) {
+      $scope.data = results.data;
+    })
+    .catch(function (err) {
+    if (err.status == 404) {
       getGithubData();
     } else {
-      $scope.data = results;
-    };
+      console.log(err);
+    }
   });
 
   // Update intervall
@@ -143,25 +157,31 @@ angular.module('automatApp')
   $interval(function() {
     checkForUpdates().then(function (res) {
       if (res === false) {
-        console.log('... update indexedDB');
         getGithubData();
-      }else{
-        //console.log('no update');
-        // Update intervall
       }
     });
   },60*60*1000);// every 60 minutes
 
   $scope.setModalContent = function(dir) {
     var modal = _.findWhere($scope.data,{'dir':dir});
+    $scope.modal.title = modal.title;
     $scope.modal.content = modal.md;
-    $scope.modal.img = modal.img;
+    $scope.modal.src = modal.src;
+    $scope.modal.euro = modal.euro;
+    $('.box').toggleClass('hide');
+    $('#productView').toggleClass('hide');
   };
+
+  $scope.closeProductView = function() {
+    $('#productView').toggleClass('hide');
+    $('.box').toggleClass('hide');
+  }
 
   //modal initation
   $scope.modal = {
     'title'   : undefined,
     'content' : undefined,
+    'img' : undefined,
   };
 
   $scope.markdown = function() {
